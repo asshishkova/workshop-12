@@ -9,7 +9,7 @@ const PokeSelector = ({ onClose }) => {
   // TODO 1: use your useClickOutside in order to close the dialog when someone clicks outside
 
   const dialogRef = useRef();
-  console.log('dialogRef', dialogRef);
+  // console.log('dialogRef', dialogRef);
   useClickOutside(dialogRef, onClose);
 
   // useClickOutside(dialogRef, () => {
