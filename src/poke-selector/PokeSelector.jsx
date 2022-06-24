@@ -3,9 +3,18 @@ import Close from "monday-ui-react-core/dist/icons/Close";
 import React, { useState, useCallback, useEffect, useRef } from "react";
 import "./PokeSelector.scss";
 import PokeSelectorContent from "./PokeSelectorContent";
+import { useClickOutside } from "../hooks/useClickOutside";
 
 const PokeSelector = ({ onClose }) => {
   // TODO 1: use your useClickOutside in order to close the dialog when someone clicks outside
+
+  const dialogRef = useRef();
+  console.log('dialogRef', dialogRef);
+  useClickOutside(dialogRef, onClose);
+
+  // useClickOutside(dialogRef, () => {
+  //   console.log('clicked outside');
+  // });
 
   const [date, setDate] = useState(new Date());
 
@@ -39,7 +48,7 @@ const PokeSelector = ({ onClose }) => {
         size={DialogContentContainer.sizes.LARGE}
         className={"poke-selector_modal-content-container"}
         // this is how you can pass ref to the dialog
-        // ref={dialogRef}
+        ref={dialogRef}
       >
         <Icon
           icon={Close}
